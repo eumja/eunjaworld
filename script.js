@@ -1,4 +1,18 @@
 const panels = {
+  profile: {
+    title: "은자입니다",
+    body: `
+      <p>영화와 공연을 좋아하고, 그림과 평범한 하루를 기록하는 은자의 작은 공간입니다. 💗</p>
+      <p class="hint">방 안의 포스터와 소품도 하나씩 눌러보세요.</p>
+    `
+  },
+  counter: {
+    title: "TODAY / TOTAL",
+    body: `
+      <p>지금 보이는 숫자는 미니홈피 감성을 위한 디자인 숫자입니다.</p>
+      <p class="hint">실제 방문자 카운터는 다음 업데이트에서 연결할 예정이에요. 😊</p>
+    `
+  },
   room: {
     title: "은자월드",
     body: `
@@ -110,8 +124,10 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape") closeModal();
 });
 
-document.getElementById("musicToggle").addEventListener("click", () => {
-  toast.textContent = "BGM은 다음 업데이트에서 만나요. 🎵";
-  toast.classList.add("show");
-  window.setTimeout(() => toast.classList.remove("show"), 2200);
+document.querySelectorAll("[data-music]").forEach((button) => {
+  button.addEventListener("click", () => {
+    toast.textContent = "BGM은 다음 업데이트에서 만나요. 🎵";
+    toast.classList.add("show");
+    window.setTimeout(() => toast.classList.remove("show"), 2200);
+  });
 });

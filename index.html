@@ -5,19 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="영화, 공연, 그림과 일상을 기록하는 은자월드 미니홈피">
   <title>은자월드 | EUNJA WORLD</title>
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
   <main class="page">
     <div class="minihome">
       <img src="eunja_world.png" alt="핑크 픽셀 감성의 은자월드 미니룸">
 
-      <!-- 왼쪽 미니홈피 메뉴 -->
+      <!-- 프로필 -->
+      <button class="hotspot profile-card" data-panel="profile" aria-label="은자월드 프로필"></button>
+      <button class="hotspot counter-area" data-panel="counter" aria-label="투데이 토탈 안내"></button>
+
+      <!-- 왼쪽 메뉴: 이미지 속 각 행에 맞춘 클릭 영역 -->
       <button class="hotspot menu-room" data-panel="room" aria-label="은자월드 홈"></button>
       <button class="hotspot menu-diary" data-panel="blog" aria-label="네이버 블로그"></button>
       <button class="hotspot menu-photo" data-panel="clip" aria-label="네이버 클립"></button>
       <button class="hotspot menu-guest" data-panel="drawing" aria-label="그림 인스타그램"></button>
       <button class="hotspot menu-gift" data-panel="dooboo" aria-label="두부 인스타그램"></button>
+
+      <!-- 링크 -->
+      <button class="hotspot link-button" data-panel="room" aria-label="은자월드 소개"></button>
+
+      <!-- 음악 플레이어 버튼 -->
+      <button class="hotspot music-button music-play" data-music="play" aria-label="음악 재생 안내"></button>
+      <button class="hotspot music-button music-pause" data-music="pause" aria-label="음악 일시정지 안내"></button>
+      <button class="hotspot music-button music-stop" data-music="stop" aria-label="음악 정지 안내"></button>
+      <button class="hotspot music-button music-next" data-music="next" aria-label="다음 음악 안내"></button>
 
       <!-- 미니룸 오브젝트 -->
       <button class="hotspot concert" data-panel="concert" aria-label="공연 후기"></button>
@@ -26,7 +39,6 @@
       <button class="hotspot computer" data-panel="blog" aria-label="네이버 블로그"></button>
       <button class="hotspot pets" data-panel="dooboo" aria-label="두부 인스타그램"></button>
       <button class="hotspot ticket" data-panel="ticket" aria-label="관람 티켓 기록"></button>
-      <button class="hotspot music-play" id="musicToggle" aria-label="배경음악 안내"></button>
     </div>
   </main>
 
@@ -40,6 +52,6 @@
   </div>
 
   <div class="toast" id="toast" aria-live="polite"></div>
-  <script src="script.js?v=2"></script>
+  <script src="script.js?v=3"></script>
 </body>
 </html>

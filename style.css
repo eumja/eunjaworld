@@ -6,11 +6,7 @@
   --line:#efb6c1;
   --ink:#4a3737;
 }
-html,body{
-  margin:0;
-  width:100%;
-  min-height:100%;
-}
+html,body{margin:0;width:100%;min-height:100%}
 body{
   min-height:100vh;
   display:grid;
@@ -20,10 +16,8 @@ body{
   color:var(--ink);
   font-family:Pretendard,"Noto Sans KR",Arial,sans-serif;
 }
-
-/* 화면 높이와 너비를 함께 계산해 큰 모니터에서도 과하게 커지지 않도록 조정 */
 .page{
-  width:min(92vw, 1080px, calc(82vh * 1.20125));
+  width:min(94vw,1080px,calc(86vh * 1.20125));
   margin:auto;
   padding:14px 0;
 }
@@ -44,8 +38,6 @@ body{
   user-select:none;
   -webkit-user-drag:none;
 }
-
-/* 클릭 영역 */
 .hotspot{
   position:absolute;
   display:block;
@@ -54,47 +46,71 @@ body{
   margin:0;
   background:transparent;
   cursor:pointer;
-  border-radius:12px;
+  border-radius:10px;
   -webkit-tap-highlight-color:transparent;
 }
-.hotspot:hover,
-.hotspot:focus-visible{
-  outline:2px solid rgba(255,255,255,.96);
-  box-shadow:0 0 0 4px rgba(223,118,144,.72);
-  background:rgba(255,255,255,.06);
+.hotspot::after{
+  content:"";
+  position:absolute;
+  inset:1px;
+  border:2px solid transparent;
+  border-radius:inherit;
+  transition:border-color .14s ease,background .14s ease,box-shadow .14s ease,transform .14s ease;
 }
+.hotspot:hover::after,
+.hotspot:focus-visible::after{
+  border-color:rgba(224,112,141,.86);
+  background:rgba(255,255,255,.14);
+  box-shadow:0 0 0 2px rgba(255,255,255,.86);
+  transform:translateY(-1px);
+}
+.hotspot:focus-visible{outline:none}
 
-/* 왼쪽 메뉴: 이미지 속 둥근 버튼 안쪽에 정확히 맞추고 행 간격 통일 */
-.menu-room,
-.menu-diary,
-.menu-photo,
-.menu-guest,
-.menu-gift{
-  left:2.45%;
-  width:18.0%;
-  height:3.05%;
+/* 프로필: 캐릭터와 숫자 영역을 분리 */
+.profile-card{left:3.0%;top:12.2%;width:12.0%;height:12.2%;border-radius:16px}
+.counter-area{left:10.9%;top:17.1%;width:9.2%;height:6.7%;border-radius:8px}
+
+/* 메뉴 행: 세로 간격과 높이를 실제 이미지에 맞춤 */
+.menu-room,.menu-diary,.menu-photo,.menu-guest,.menu-gift{
+  left:3.15%;
+  width:17.75%;
+  height:3.35%;
   border-radius:999px;
 }
-.menu-room{top:32.45%}
-.menu-diary{top:36.08%}
-.menu-photo{top:39.70%}
-.menu-guest{top:43.32%}
-.menu-gift{top:46.94%}
+.menu-room{top:31.35%}
+.menu-diary{top:34.95%}
+.menu-photo{top:38.55%}
+.menu-guest{top:42.15%}
+.menu-gift{top:45.75%}
 
-/* 방 안의 오브젝트 */
-.concert{left:30.5%;top:15.2%;width:9.3%;height:17%}
-.movie{left:68.1%;top:15.2%;width:10.7%;height:18%}
-.sketch{left:29.2%;top:75.2%;width:18.6%;height:11.8%}
-.computer{left:78.8%;top:50.4%;width:16.5%;height:18.5%}
-.pets{left:38.5%;top:61.5%;width:31%;height:13.5%}
-.ticket{left:51.8%;top:76.3%;width:20.2%;height:10.6%}
-.music-play{
-  left:3.55%;
-  top:79.18%;
-  width:16.55%;
-  height:5.65%;
-  border-radius:999px;
+/* 링크 버튼 */
+.link-button{
+  left:3.05%;
+  top:56.05%;
+  width:18.2%;
+  height:5.15%;
+  border-radius:12px;
 }
+
+/* 뮤직 버튼: 그림 속 원형 버튼 각각에 맞춤 */
+.music-button{
+  top:76.85%;
+  width:4.2%;
+  height:5.05%;
+  border-radius:50%;
+}
+.music-play{left:3.35%}
+.music-pause{left:7.95%}
+.music-stop{left:12.55%}
+.music-next{left:17.15%}
+
+/* 방 안 오브젝트 */
+.concert{left:30.8%;top:14.55%;width:9.1%;height:17.0%;border-radius:5px}
+.movie{left:68.05%;top:15.55%;width:10.3%;height:17.3%;border-radius:5px}
+.sketch{left:29.4%;top:74.2%;width:18.0%;height:11.3%;border-radius:12px}
+.computer{left:78.2%;top:48.3%;width:17.2%;height:19.0%;border-radius:12px}
+.pets{left:38.4%;top:58.6%;width:30.8%;height:13.8%;border-radius:18px}
+.ticket{left:51.7%;top:74.6%;width:20.2%;height:10.8%;border-radius:8px}
 
 /* 팝업 */
 .modal{
@@ -110,7 +126,7 @@ body{
 .modal.open{display:grid}
 .modal-card{
   position:relative;
-  width:min(90vw,520px);
+  width:min(90vw,500px);
   max-height:min(76vh,650px);
   overflow:auto;
   padding:32px 28px 28px;
@@ -190,20 +206,8 @@ h2{
 
 @media(max-width:760px){
   body{display:block;background:#fff3f6}
-  .page{
-    width:100%;
-    max-width:none;
-    padding:0;
-  }
-  .minihome{
-    width:100%;
-    border-radius:0;
-    box-shadow:none;
-  }
+  .page{width:100%;max-width:none;padding:0}
+  .minihome{width:100%;border-radius:0;box-shadow:none}
   .modal{padding:16px}
-  .modal-card{
-    width:min(94vw,500px);
-    max-height:80vh;
-    padding:30px 21px 23px;
-  }
+  .modal-card{width:min(94vw,500px);max-height:80vh;padding:30px 21px 23px}
 }
