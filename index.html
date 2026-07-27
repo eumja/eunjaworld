@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="영화, 공연, 그림과 일상을 기록하는 은자월드 미니홈피">
+  <title>은자월드 | EUNJA WORLD</title>
+  <link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+  <main class="page">
+    <div class="minihome">
+      <img src="eunja_world.png" alt="핑크 픽셀 감성의 은자월드 미니룸">
+
+      <!-- 왼쪽 미니홈피 메뉴 -->
+      <button class="hotspot menu-room" data-panel="room" aria-label="은자월드 홈"></button>
+      <button class="hotspot menu-diary" data-panel="blog" aria-label="네이버 블로그"></button>
+      <button class="hotspot menu-photo" data-panel="clip" aria-label="네이버 클립"></button>
+      <button class="hotspot menu-guest" data-panel="drawing" aria-label="그림 인스타그램"></button>
+      <button class="hotspot menu-gift" data-panel="dooboo" aria-label="두부 인스타그램"></button>
+
+      <!-- 미니룸 오브젝트 -->
+      <button class="hotspot concert" data-panel="concert" aria-label="공연 후기"></button>
+      <button class="hotspot movie" data-panel="movie" aria-label="영화 후기"></button>
+      <button class="hotspot sketch" data-panel="design" aria-label="포토샵 디자인 기록"></button>
+      <button class="hotspot computer" data-panel="blog" aria-label="네이버 블로그"></button>
+      <button class="hotspot pets" data-panel="dooboo" aria-label="두부 인스타그램"></button>
+      <button class="hotspot ticket" data-panel="ticket" aria-label="관람 티켓 기록"></button>
+      <button class="hotspot music-play" id="musicToggle" aria-label="배경음악 안내"></button>
+    </div>
+  </main>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="close" id="closeModal" aria-label="닫기">×</button>
+      <p class="eyebrow">EUNJA WORLD</p>
+      <h2 id="modalTitle"></h2>
+      <div id="modalBody"></div>
+    </section>
+  </div>
+
+  <div class="toast" id="toast" aria-live="polite"></div>
+  <script src="script.js?v=2"></script>
+</body>
+</html>
